@@ -2,13 +2,19 @@
 
 * 자동화 테스트 강의용 Sample 서비스
 
+## 설치 방법
+* Docker 및 Docker-compose가 설치되어 있는 상태
+```
+docker-compose up --build -d
+```
+* http://127.0.0.1:8000/ 진입
+
 ## Login User Info
 ```bash
 id : qwazii
 pw : test111222
 token : 3a8f3044ff3c12a196ef7ec35f8290d395be6e90
 ```
-
 
 ## UI
 ### Login page
