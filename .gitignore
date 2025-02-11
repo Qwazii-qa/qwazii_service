@@ -63,7 +63,7 @@ coverage.xml
 cover/
 
 # Poetry
-poetry.lock
+# poetry.lock
 
 # Docker
 .docker/
