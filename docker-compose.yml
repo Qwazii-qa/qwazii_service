@@ -1,0 +1,21 @@
+services:
+  qwazii:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      expose:
+        - '8000'
+      volumes:
+        - .:/qwazii_service
+
+  nginx:
+      container_name: nginx
+      image: nginx:latest
+      ports:
+        - '8080:80'
+      volumes:
+        - .:/qwazii_service
+        - ./config/nginx/:/etc/nginx/conf.d/
+      depends_on:
+        - qwazii
+      restart: on-failure

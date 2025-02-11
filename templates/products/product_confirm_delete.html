@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>상품 삭제</h2>
+    <p>정말로 "{{ object.name }}" 상품을 삭제하시겠습니까?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">삭제</button>
+        <a href="{% url 'products:list' %}" class="btn btn-secondary">취소</a>
+    </form>
+</div>
+{% endblock %}

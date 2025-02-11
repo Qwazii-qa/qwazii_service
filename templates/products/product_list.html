@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>상품 목록</h2>
+    <a href="{% url 'products:create' %}" class="btn btn-primary mb-3">새 상품 등록</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>상품명</th>
+                <th>카테고리</th>
+                <th>단가</th>
+                <th>판매가격</th>
+                <th>제조사</th>
+                <th>재고</th>
+                <th>수수료</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.cost_price }}</td>
+                <td>{{ product.selling_price }}</td>
+                <td>{{ product.manufacturer }}</td>
+                <td>{{ product.stock_quantity }}</td>
+                <td>{{ product.commission_rate }}%</td>
+                <td>
+                    <a href="{% url 'products:update' product.pk %}" class="btn btn-sm btn-info">수정</a>
+                    <a href="{% url 'products:delete' product.pk %}" class="btn btn-sm btn-danger">삭제</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center mb-0">로그아웃</h3>
+                </div>
+                <div class="card-body text-center">
+                    <p class="mb-4">성공적으로 로그아웃되었습니다.</p>
+                    <a href="{% url 'login' %}" class="btn btn-primary">다시 로그인</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 로컬 스토리지 및 세션 스토리지 정리
+    window.localStorage.clear();
+    window.sessionStorage.clear();
+    
+    // 모든 쿠키 삭제
+    document.cookie.split(";").forEach(function(c) {
+        document.cookie = c.replace(/^ +/, "")
+            .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    });
+</script>
+{% endblock %}
